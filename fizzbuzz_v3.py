@@ -9,12 +9,12 @@ try:
  	# handle error if user has not supplied value at command line:		
  	n = int(sys.argv[1]) # if value supplied at command line. use 'int' to convert input to integer
 except IndexError:
-	try:
-		n = int(raw_input("Please enter a number up to 100: ")) # if user not supplied at initial load time
-	except ValueError:
-		n = int(raw_input("Please enter a numeric input up to 100: ")) # if user enters text at prompt
-except ValueError: # if value supplied at command line is non-numeric
- 	n = int(raw_input("Please enter a numeric input up to 100: "))
+	while True:
+		try:
+			n = int(raw_input("Please enter a number up to 100: ")) # if user not supplied at initial load time
+			break
+		except ValueError:
+			pass
 
  # Print "Fizz buzz counting up to n"
 print("Fizz buzz counting up to {}".format(n))
